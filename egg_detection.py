@@ -54,7 +54,7 @@ dist_transform = cv2.morphologyEx(dist_transform, cv2.MORPH_CLOSE ,None, iterati
 # cv2.imshow("Distance Transform", dist_transform)
 _, sure_foreground = cv2.threshold(dist_transform, 0.40, 1.0, cv2.THRESH_BINARY)
 sure_foreground = cv2.morphologyEx(sure_foreground, cv2.MORPH_CLOSE ,None, iterations=1)
-sure_foreground = cv2.morphologyEx(sure_foreground, cv2.MORPH_OPEN ,None, iterations=2)
+sure_foreground = cv2.morphologyEx(sure_foreground, cv2.MORPH_OPEN ,None, iterations=1)
 sure_foreground = np.uint8(sure_foreground)
 num_markers, markers = cv2.connectedComponents(sure_foreground)
 markers = markers + 1
@@ -80,6 +80,7 @@ print(f"Total number of eggs detected: {egg_count}")
 # show_image("Watershed Segmentation", segmented)
 # show_image("Final Result with Detected Eggs", original)
 show_images_side_by_side(dist_transform, segmented)
+show_images_side_by_side(segmented,original)
 
 # cv2.imwrite("Mask-after-Thresholding.png", mask)
 # cv2.imwrite("Distance-Transform-Normalized.png", dist_transform)
