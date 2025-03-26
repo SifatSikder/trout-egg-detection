@@ -1,0 +1,6 @@
+train: /content/drive/MyDrive/Computer Vision/Object(EGG) Detection Using YOLO/data2/train/images
+val: /content/drive/MyDrive/Computer Vision/Object(EGG) Detection Using YOLO/data2/valid/images
+test: /content/drive/MyDrive/Computer Vision/Object(EGG) Detection Using YOLO/data2/test/images
+
+nc: 1
+names: ["Eggs"]
